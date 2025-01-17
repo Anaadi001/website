@@ -133,7 +133,7 @@ const questions = [
             
             { text: "Spicy, hot, and stimulating foods", guna: "rajas" },
             { text: "Heavy, stale, or processed foods", guna: "tamas" },
-          { text: "Fresh, nutritious, and vegetarian food prepared with love", guna: "sattva" }
+          { text: "Fresh, nutritious, and vegetarian food", guna: "sattva" }
         ]
     },
     {
@@ -180,7 +180,7 @@ const questions = [
         question: "How do you react to success?",
         options: [
            { text: "With excitement and desire for more achievements", guna: "rajas" },
-          { text: "With gratitude and remian humble", guna: "sattva" },     
+          { text: "With gratitude and remain humble", guna: "sattva" },     
             { text: "With brief satisfaction followed by inertia", guna: "tamas" }
         ]
     },
@@ -188,7 +188,7 @@ const questions = [
         question: "How do people find your speech to be?",
         options: [
             { text: "Peaceful, soothing and calming", guna: "sattva" },
-            { text: "Bit agressive or sharp", guna: "rajas" },
+            { text: "Bit aggressive or sharp", guna: "rajas" },
             { text: "Dull and low sounding", guna: "tamas" }
         ]
     },
@@ -205,7 +205,7 @@ const questions = [
         question: "Describe the way you work?",
         options: [
             { text: "Without being attached to the results", guna: "sattva" },
-            { text: "No more please. want to realax", guna: "tamas" },
+            { text: "No more please. want to relax", guna: "tamas" },
           { text: "Seeking results and rewards", guna: "rajas" }
         ]
     },
