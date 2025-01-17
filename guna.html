@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guna Assessment</title>
+</head>
+
+<body>
+  <header class="main-header">
+    <h1>🕉️ Discover Your Dominant Guna</h1>
+    <p class="header-subtitle">Based on Bhagavad Gita & Ayurvedic Principles</p>
+    <h6> Guna or nature is qualities that make up our actions and motivations in the material world. When the living entity comes in contact with nature, he becomes conditioned by these modes. In layman these are the conditioning of an individual by which the mind responds to an situation. </h6>
+  </header>
+
+  <main class="container">
+    <!-- Personal Information Section -->
+    <section id="personal-info" class="section">
+      <h2>Personal Information</h2>
+      <form id="personal-form" class="form-container">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="place">Place of Residence</label>
+          <input type="text" id="place" name="place" required>
+        </div>
+        <div class="form-group">
+          <label for="birthdate">Date of Birth</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+        <button type="button" id="start-assessment" class="primary-button">Begin Assessment</button>
+      </form>
+    </section>
+
+    <!-- Questions Section -->
+    <section id="questions-section" class="section hidden">
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+
+      <div id="question-container">
+        <!-- Questions will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="section hidden">
+      <h2>Your Guna Assessment Results</h2>
+      <div class="results-container">
+        <div class="guna-scores">
+          <div class="score-card" id="sattva-score">
+            <h3>Sattva</h3>
+            <div class="score-value"></div>
+          </div>
+          <div class="score-card" id="rajas-score">
+            <h3>Rajas</h3>
+            <div class="score-value"></div>
+          </div>
+          <div class="score-card" id="tamas-score">
+            <h3>Tamas</h3>
+            <div class="score-value"></div>
+          </div>
+        </div>
+
+        <div class="dominant-guna">
+          <h3>Your Dominant Nature</h3>
+          <p id="dominant-guna-text"></p>
+        </div>
+
+        <div class="guna-characteristics">
+          <h3>Characteristics of Your Dominant Guna</h3>
+          <ul id="characteristics-list"></ul>
+        </div>
+
+        <div class="recommendations">
+          <h3>Spiritual Recommendations</h3>
+          <ul id="recommendations-list"></ul>
+        </div>
+
+        <button type="button" id="restart-assessment" class="secondary-button">Take Assessment Again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="modes-description">
+      <h3>Modes Description</h3>
+      <ul>
+        <li><strong>Godness:</strong> Relates to awareness of oneself and knowledge.</li>
+        <li><strong>Passion:</strong> Signifies hyperactivity, unlimited desires, and longings leading to fruitive activities.</li>
+        <li><strong>Ignorance:</strong> Delusion of all living entities; results in madness, indolence, and sleep, binding the conditioned soul.</li>
+      </ul>
+    </div>
+    <p>Based on teachings from Bhagavad Gita Chapter 14: The Three Modes of Material Nature</p>
+  </footer>
+
+  <!-- Template for question structure -->
+  <template id="question-template">
+    <div class="question-box">
+      <h3 class="question-number">Question <span></span></h3>
+      <p class="question-text"></p>
+      <div class="options-container">
+        <label class="option">
+          <input type="radio" name="question">
+          <span class="option-text"></span>
+        </label>
+      </div>
+      <button type="button" class="next-button">Next Question</button>
+    </div>
+  </template>
+</body>
+
+</html>
