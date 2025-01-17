@@ -222,19 +222,19 @@ const questions = [
         question: "Choose a song that resonates with you:",
         options: [
             { 
-                text: "Sattva - Peaceful Meditation Music", 
+                text: "Music 1", 
                 guna: "sattva", 
-                audio: "https://drive.google.com/file/d/1P3kEkHmVxpyc7H-hkU2bkR5HCk0pRaCd/view?usp=drive_link"  // Update with actual audio path
+                audio: "audio/Ahe_Nila_Shaila.mp3"  // Update with actual audio path
             },
             { 
-                text: "Rajas - Energetic Dance Music", 
+                text: "Music 2", 
                 guna: "rajas", 
-                audio: "Ek_Zindagi.mp3"   // Update with actual audio path
+                audio: "audio/Ek_Zindagi.mp3"   // Update with actual audio path
             },
             { 
-                text: "Tamas - Melancholic Music", 
+                text: "Music 3", 
                 guna: "tamas", 
-                audio: ""   // Update with actual audio path
+                audio: "audio/Into_the_Spider_verse.mp3"   // Update with actual audio path
             }
         ]
           }
