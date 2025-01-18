@@ -241,7 +241,7 @@ const questions = [
 ];
 // Function to get suggestions based on dominant guna
 async function getGunaSuggestions(scores) {
-    const API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with your actual API key
+    const API_KEY = 'AIzaSyBo7jo3CpmY9__iJJPGxj6-LgDE2bglaSw'; // Replace with your actual API key
     const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
   // Calculate percentages
     const total = scores.sattva + scores.rajas + scores.tamas;
