@@ -239,7 +239,64 @@ const questions = [
         ]
           }
 ];
+// Function to get suggestions based on dominant guna
+async function getGunaSuggestions(scores) {
+    const API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with your actual API key
+    const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+  // Calculate percentages
+    const total = scores.sattva + scores.rajas + scores.tamas;
+    const sattvaPct = Math.round((scores.sattva / total) * 100);
+    const rajasPct = Math.round((scores.rajas / total) * 100);
+    const tamasPct = Math.round((scores.tamas / total) * 100);
+    
+    // Construct the prompt
+    const prompt = `Based on the following Guna percentages:
+    Sattva (Goodness): ${sattvaPct}%
+    Rajas (Passion): ${rajasPct}%
+    Tamas (Ignorance): ${tamasPct}%
+    
+   // Provide:
+    1. Three book recommendations that would help balance and elevate these Gunas
+    2. An spirit animal that represents these Guna proportions
+    3. A brief explanation of why these recommendations fit the person's nature
+    
+    Format the response as JSON with the following structure:
+    {
+        "books": ["book1", "book2", "book3"],
+        "animal": "spirit animal name",
+        "explanation": "explanation text"
+    }`;
 
+    try {
+        const response = await fetch(API_URL + '?key=' + API_KEY, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            })
+        });
+
+        const data = await response.json();
+        // Parse the text response as JSON
+        const suggestions = JSON.parse(data.candidates[0].content.parts[0].text);
+        return suggestions;
+    } catch (error) {
+        console.error('Error fetching suggestions:', error);
+        return {
+            books: [
+                "Bhagavad Gita As It Is",
+                "The Power of Now",
+                "The Alchemist"
+            ],
+            animal: "Swan",
+            explanation: "Default suggestions due to API error. These selections promote spiritual growth and self-discovery."
+        };
+    }
+}   
 
 let currentQuestion = 0;
 let scores = {
@@ -357,8 +414,8 @@ function updateProgressBar() {
     progressFill.style.width = `${progress}%`;
 }
 
-// Function to show results
-function showResults() {
+// Update the showResults function to include suggestions
+async function showResults() {
     const questionsSection = document.getElementById('questions-section');
     const resultsSection = document.getElementById('results-section');
     const total = scores.sattva + scores.rajas + scores.tamas;
@@ -377,7 +434,35 @@ function showResults() {
     document.querySelector('#sattva-score .score-value').textContent = `${sattvaPct}%`;
     document.querySelector('#rajas-score .score-value').textContent = `${rajasPct}%`;
     document.querySelector('#tamas-score .score-value').textContent = `${tamasPct}%`;
+
+    // Get and display suggestions
+    const suggestions = await getGunaSuggestions(scores);
+    
+    // Add suggestions to the results section
+    const suggestionsHTML = `
+        <div class="suggestions-container">
+            <div class="spirit-animal">
+                <h3>Your Spirit Animal</h3>
+                <p>${suggestions.animal}</p>
+            </div>
+            <div class="book-recommendations">
+                <h3>Recommended Books</h3>
+                <ul>
+                    ${suggestions.books.map(book => `<li>${book}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="explanation">
+                <h3>Why These Recommendations?</h3>
+                <p>${suggestions.explanation}</p>
+            </div>
+        </div>
+    `;
+
+    // Add suggestions to results section
+    document.querySelector('.results-container').insertAdjacentHTML('beforeend', suggestionsHTML);
     
     questionsSection.classList.add('hidden');
     resultsSection.classList.remove('hidden');
-};
+}
+
+
