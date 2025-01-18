@@ -281,6 +281,62 @@ input:focus {
     animation: fadeIn 0.5s ease-out;
 }
 
+.suggestions-container {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spirit-animal {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
+    border-radius: 8px;
+}
+
+.spirit-animal p {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-top: var(--spacing-sm);
+}
+
+.book-recommendations {
+    margin-bottom: var(--spacing-lg);
+}
+
+.book-recommendations ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-recommendations li {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+    background: #f8f9fa;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.book-recommendations li:hover {
+    transform: translateX(5px);
+    background: #f1f4f8;
+}
+
+.explanation {
+    padding: var(--spacing-md);
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: var(--spacing-lg);
+}
+
+.explanation p {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
